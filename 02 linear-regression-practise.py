@@ -39,7 +39,7 @@ def gradient_step(m, b, dataset, learning_rate):
 # Start the program
 def run():
     # Step 1: Collect the dataset
-    dataset = np.loadtxt('linear_regression_live-master/data.csv',
+    dataset = np.loadtxt('data.csv',
                          delimiter=',')
     # Step 2: Define hpyerparameters
     learning_rate = 1e-4

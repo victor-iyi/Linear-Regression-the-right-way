@@ -16,7 +16,6 @@ def compute_error(b, m, points):
 def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_iter):
     b = starting_b
     m = starting_m
-
     # gradient descent
     for i in range(num_iter):
         # update b and m with more accurate b and m by performing
@@ -33,23 +32,21 @@ def gradient_step(b_current, m_current, points, learning_rate):
     for i,point in enumerate(points):
         X = point[0]
         y = point[1]
-        
         # direction with respect to b and m
         # Computing partial derivatives of our error function
-        m_gradient += -(2/N) * (y - (m_current*X + b_current))
+        m_gradient += (2/N) * -(y - (m_current*X + b_current))
         b_gradient += (2/N) * -X * (y - (m_current*X + b_current))
     # update our b and m values
     new_b = b_current - (learning_rate * b_gradient)
     new_m = m_current - (learning_rate * m_gradient)
     return new_b, new_m
-    
 
 def run():
     # Step 1: Collect our data
-    points = np.genfromtxt('linear_regression_live-master/data.csv', delimiter=',')
+    points = np.genfromtxt('data.csv', delimiter=',')
     # X = Amount of hours studied
     # y = test scores
-
+    
     # Step 2: Define our hyperparameters
     learning_rate = 0.1e-3
     # y = mx + b
